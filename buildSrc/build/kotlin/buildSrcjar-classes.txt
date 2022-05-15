@@ -1,0 +1,1 @@
+C:\Users\Rohmat\AndroidStudioProjects\MyPoke\buildSrc\build\classes\kotlin\main\BuildDependenciesVersions.class;C:\Users\Rohmat\AndroidStudioProjects\MyPoke\buildSrc\build\classes\kotlin\main\Dependencies.class
