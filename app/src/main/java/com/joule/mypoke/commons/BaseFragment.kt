@@ -10,11 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment<B : ViewBinding>(
-    @LayoutRes
-    private val layoutId: Int,
-    private val bind: (View) -> B,
-) : Fragment(layoutId) {
+abstract class BaseFragment<B : ViewBinding>(@LayoutRes private val layoutId: Int, private val bind: (View) -> B, ) : Fragment(layoutId) {
     private var _binding: B? = null
     val binding get() = _binding as B
 
@@ -23,7 +19,7 @@ abstract class BaseFragment<B : ViewBinding>(
         _binding = bind(view)
 
         onSetTitleToolbar((requireActivity() as AppCompatActivity?)?.supportActionBar)
-        setView()
+        init()
 
         // Adding an option to handle the back press in fragment
         with(requireActivity()) {
@@ -39,13 +35,12 @@ abstract class BaseFragment<B : ViewBinding>(
         }
     }
 
-
     open fun onBackPressed() {
         findNavController().popBackStack()
     }
 
     open fun onSetTitleToolbar(supportActionBar: ActionBar?) {}
-    abstract fun setView()
+    abstract fun init()
 
     override fun onDestroy() {
         _binding = null

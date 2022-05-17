@@ -6,4 +6,113 @@
     android:layout_height="match_parent"
     tools:context=".ui.detail.DetailActivity">
 
+    <GridLayout
+        android:id="@+id/grid_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/img_front_default"
+            layout="@layout/layout_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+        <include
+            android:id="@+id/img_back_default"
+            layout="@layout/layout_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+        <include
+            android:id="@+id/img_front_shiny"
+            layout="@layout/layout_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+        <include
+            android:id="@+id/img_back_shiny"
+            layout="@layout/layout_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1" />
+
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tv_label_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/title_id"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/grid_image" />
+
+    <TextView
+        android:id="@+id/tv_label_species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_species"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        app:layout_constraintStart_toStartOf="@id/tv_label_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_id" />
+
+    <TextView
+        android:id="@+id/tv_label_types"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/title_types"
+        android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+        app:layout_constraintStart_toStartOf="@id/tv_label_id"
+        app:layout_constraintTop_toBottomOf="@id/tv_label_species" />
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:barrierMargin="16dp"
+        app:constraint_referenced_ids="tv_label_id, tv_label_species, tv_label_types" />
+
+    <TextView
+        android:id="@+id/tv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        tools:text="1"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        app:layout_constraintBottom_toBottomOf="@id/tv_label_id"
+        app:layout_constraintStart_toEndOf="@id/barrier" />
+
+    <TextView
+        android:id="@+id/tv_species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        tools:text="Ballsaur"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        app:layout_constraintBottom_toBottomOf="@id/tv_label_species"
+        app:layout_constraintStart_toEndOf="@id/barrier" />
+    <TextView
+        android:id="@+id/tv_types"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        tools:text="Ballsaur"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        app:layout_constraintBottom_toBottomOf="@id/tv_label_types"
+        app:layout_constraintStart_toEndOf="@id/barrier" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

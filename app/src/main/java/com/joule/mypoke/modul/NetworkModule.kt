@@ -31,7 +31,7 @@ fun provideOkHttpClient(
     .writeTimeout(NETWORK_TIMEOUT, TimeUnit.SECONDS)
     .addInterceptor(HttpLoggingInterceptor().apply {
         level =
-            if (true) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+            HttpLoggingInterceptor.Level.BODY
     })
     .build()
 

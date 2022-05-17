@@ -3,7 +3,10 @@ package com.joule.mypoke
 import android.app.Application
 import com.joule.mypoke.domain.PokeRepository
 import com.joule.mypoke.domain.PokeRepositoryImpl
+import com.joule.mypoke.modul.databaseModule
 import com.joule.mypoke.modul.networkModule
+import com.joule.mypoke.modul.repositoryModule
+import com.joule.mypoke.modul.viewModelModule
 import com.joule.mypoke.ui.detail.DetailViewModel
 import com.joule.mypoke.ui.home.HomeViewModel
 import org.koin.android.ext.android.get
@@ -19,14 +22,10 @@ class MyApp : Application() {
         startKoin {
             androidContext(this@MyApp)
             modules(networkModule)
+            modules(repositoryModule)
+            modules(databaseModule)
             modules(viewModelModule)
         }
 
-    }
-
-    val viewModelModule = module {
-        factory { PokeRepositoryImpl(get()) as PokeRepository }
-        viewModel { HomeViewModel(get()) }
-        viewModel { param -> DetailViewModel( param.get() ,get()) }
     }
 }

@@ -4,4 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_favorite">Favorite</string>
+    <string name="title_id">ID</string>
+    <string name="title_species">Species</string>
+    <string name="title_types">Types</string>
 </resources>

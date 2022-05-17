@@ -10,14 +10,17 @@ data class Pokemon(
     @SerializedName("name")
     val name: String,
 
-    @SerializedName("color")
-    val color: CommonData,
+    @SerializedName("species")
+    val species: CommonData,
 
-    @SerializedName("egg_groups")
-    val eggGroups: ArrayList<CommonData>,
+    @SerializedName("sprites")
+    val sprites: Sprites,
 
-    @SerializedName("habitat")
-    val habitat: CommonData
+    @SerializedName("types")
+    val types: ArrayList<Type>,
+
+    @SerializedName("weight")
+    val weight: String?
 
 )
 
@@ -26,4 +29,27 @@ data class CommonData(
     val name: String,
     @SerializedName("url")
     val url: String
+)
+
+data class Type(
+    @SerializedName("slot")
+    val slot: Int,
+
+    @SerializedName("type")
+    val type: CommonData
+)
+
+data class Sprites(
+    @SerializedName("back_default")
+    val back: String,
+
+    @SerializedName("back_shiny")
+    val backShiny: String,
+
+    @SerializedName("front_default")
+    val front: String,
+
+    @SerializedName("front_shiny")
+    val frontShiny: String,
+
 )

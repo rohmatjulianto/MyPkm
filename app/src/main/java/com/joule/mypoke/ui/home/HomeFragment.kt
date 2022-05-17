@@ -19,7 +19,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home, {
 
     val viewModel : HomeViewModel by inject()
 
-    override fun setView() {
+    override fun init() {
         val textView: TextView = binding.textHome
         viewModel.text.observe(viewLifecycleOwner){
             textView.text = it

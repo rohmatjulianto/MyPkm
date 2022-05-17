@@ -26,7 +26,7 @@
         android:label="@string/title_favorite"
         tools:layout="@layout/favorite_fragment" >
         <action
-            android:id="@+id/action_navigation_favorite_to_detailActivity2"
+            android:id="@+id/action_navigation_favorite_to_detailActivity"
             app:destination="@id/detailActivity" />
     </fragment>
 

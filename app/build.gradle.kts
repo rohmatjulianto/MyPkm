@@ -1,7 +1,10 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
-    id ("com.android.application")
-    id ("org.jetbrains.kotlin.android")
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
+    id("kotlin-kapt")
 }
 
 android {
@@ -49,6 +52,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
     implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("com.github.bumptech.glide:glide:4.13.0")
 
     Dependencies.apply {
         // dependency
@@ -66,8 +70,8 @@ dependencies {
         implementation(OKHTTP)
 
         // local
-        implementation(ROOM)
         implementation(ROOM_KTX)
+        kapt(ROOM_COMPILER)
     }
 
     testImplementation("junit:junit:4.13.2")
