@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "265385657311",
+    "project_id": "mypoke-cd641",
+    "storage_bucket": "mypoke-cd641.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265385657311:android:fa36f537bfdd79596f7a6a",
+        "android_client_info": {
+          "package_name": "com.joule.mypoke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265385657311-se9hm7pvvj053tbgev4gtj6j0q81f0ac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMWKs6LRt9mxV17dQ8QK7Yr6YpJYyFipc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265385657311-se9hm7pvvj053tbgev4gtj6j0q81f0ac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

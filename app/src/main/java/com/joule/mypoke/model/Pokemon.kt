@@ -3,7 +3,6 @@ package com.joule.mypoke.model
 import com.google.gson.annotations.SerializedName
 
 data class Pokemon(
-
     @SerializedName("id")
     val id: Int,
 
@@ -11,19 +10,23 @@ data class Pokemon(
     val name: String,
 
     @SerializedName("species")
-    val species: CommonData,
+    val species: CommonData? = null,
 
     @SerializedName("sprites")
-    val sprites: Sprites,
+    val sprites: Sprites? = null,
 
     @SerializedName("types")
-    val types: ArrayList<Type>,
+    val types: ArrayList<Type>? = null,
 
     @SerializedName("weight")
-    val weight: String?
+    val weight: Int? = null
 
 )
 
+data class Result<T>(
+    @SerializedName("results")
+    val data: T?
+)
 data class CommonData(
     @SerializedName("name")
     val name: String,

@@ -1,9 +1,9 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.firebase.crashlytics")
+    id("com.google.gms.google-services")
     id("kotlin-kapt")
 }
 
@@ -72,9 +72,22 @@ dependencies {
         // local
         implementation(ROOM_KTX)
         kapt(ROOM_COMPILER)
+
+        // firebase crashlytics
+        implementation(FIRE_CRASHLYTICS)
+        implementation(FIRE_ANALYTICS)
+        implementation(platform(FIRE_BOM))
+
+        testImplementation(KOINT_TEST)
+        testImplementation(JUNIT)
+        testImplementation(MOCK)
+        testImplementation(MOCK_IO)
+        testImplementation(MOCK_KOTLIN)
+        testImplementation(MOCK_SERVER)
+        testImplementation(CORE_TEST)
+        testImplementation(COROUTINE_TEST)
     }
 
-    testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
 }

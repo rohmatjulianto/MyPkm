@@ -1,0 +1,24 @@
+{
+  "id": 10,
+  "name": "caterpie",
+  "species": {
+    "name": "name",
+    "url": "url"
+  },
+  "sprites": {
+    "back_default": "",
+    "back_shiny": "",
+    "front_default": "",
+    "front_shiny": ""
+  },
+  "types": [
+    {
+      "slot": 1,
+      "type": {
+        "name": "name",
+        "url": "url"
+      }
+    }
+  ],
+  "weight": 29
+}

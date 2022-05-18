@@ -16,22 +16,16 @@ class FavoriteViewModel(val pokeDao: PokeDao, private val dispatcher: CoroutineD
     private val _pokemon = MutableLiveData<List<PokeEntity>>()
     val pokemon : LiveData<List<PokeEntity>> = _pokemon
 
-    private val _errorMsg = MutableLiveData<String>()
-    val errorMsg : LiveData<String> = _errorMsg
-
     init {
         getAllPokemon()
     }
 
     fun getAllPokemon(){
         viewModelScope.launch(dispatcher) {
-            val result = pokeDao.getAllPokemon()
+            val result = pokeDao.getAllPokemonFavorite()
             if (result.isNotEmpty()){
                 _pokemon.postValue(result)
-            }else{
-                _errorMsg.postValue("tidak ada cuy")
             }
-
         }
     }
 }

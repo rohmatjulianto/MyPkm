@@ -1,7 +1,5 @@
 package com.joule.mypoke.modul
 
-import com.joule.mypoke.domain.PokeRepository
-import com.joule.mypoke.domain.PokeRepositoryImpl
 import com.joule.mypoke.ui.detail.DetailViewModel
 import com.joule.mypoke.ui.favorite.FavoriteViewModel
 import com.joule.mypoke.ui.home.HomeViewModel

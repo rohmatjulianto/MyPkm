@@ -1,5 +1,6 @@
 package com.joule.mypoke.ui.detail
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,11 +27,8 @@ class DetailViewModel(
     private val _favoriteState = MutableStateFlow<FavoriteState>(FavoriteState.OnNull)
     val favoriteState = _favoriteState.asStateFlow()
 
-    private val _pokemon = MutableLiveData<Pokemon>()
-    val pokemon: LiveData<Pokemon> = _pokemon
-
-    private val _errorMsg = MutableLiveData<String>()
-    val errorMsg: LiveData<String> = _errorMsg
+    private val _pokemon = MutableLiveData<Resource<Pokemon>>()
+    val pokemon: LiveData<Resource<Pokemon>> = _pokemon
 
     init {
         getDetailPokemon(name)
@@ -39,22 +37,14 @@ class DetailViewModel(
     fun getDetailPokemon(name: String) {
         viewModelScope.launch(dispatcher) {
             val result = repo.getPokemon(name)
-            when (result) {
-                is Resource.Success -> {
-                    _pokemon.postValue(result.data!!)
-                    validateFromDb(result.data.id)
-                }
-                is Resource.Error -> {
-                    _errorMsg.postValue(result.msg!!)
-                }
-            }
+            _pokemon.postValue(result)
         }
     }
 
-    fun validateFromDb(id: Int) {
+    fun validateFromDb(id: Int){
         viewModelScope.launch(dispatcher) {
             val result = pokeDao.getById(id)
-            if (result != null) {
+            if (result?.isFav == 0) {
                 _favoriteState.emit(FavoriteState.OnNull)
             } else {
                 _favoriteState.emit(FavoriteState.OnSaved)
@@ -65,11 +55,11 @@ class DetailViewModel(
     fun saveOrDeleteFromFavorite(id: Int, name: String) {
         viewModelScope.launch(dispatcher) {
             val result = pokeDao.getById(id)
-            if (result != null) {
-                pokeDao.delete(PokeEntity(id, name))
+            if (result?.isFav != 0) {
+                pokeDao.updateFav(PokeEntity(id, name, 0))
                 _favoriteState.emit(FavoriteState.OnDeleted)
             } else {
-                pokeDao.insert(PokeEntity(id, name))
+                pokeDao.updateFav(PokeEntity(id, name, 1))
                 _favoriteState.emit(FavoriteState.OnSaved)
             }
         }

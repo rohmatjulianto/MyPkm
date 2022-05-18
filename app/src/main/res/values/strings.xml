@@ -7,4 +7,5 @@
     <string name="title_id">ID</string>
     <string name="title_species">Species</string>
     <string name="title_types">Types</string>
+    <string name="title_search">Search Pokemon</string>
 </resources>
